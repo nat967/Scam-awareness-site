@@ -1,5 +1,6 @@
 name: marp-to-pages
 concurrency: marp-to-pages
+
 on:
   push:
     branches: [ main ]
@@ -9,6 +10,10 @@ on:
       - reopened
       - synchronize
       - closed
+
+permissions:
+  contents: write   # 👈 REQUIRED FIX
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -35,5 +40,3 @@ jobs:
           branch: gh-pages
           folder: ./build/
           clean-exclude: pr-preview/
-
-
